@@ -56,7 +56,7 @@ async function nuevoVentas(data) {
     
 }
 
-async function borrarVenta(id) {
+async function cancelarVenta(id) {
     var ventasValidas = await encontrado(id);
     let ventaBorrada = false;
  
@@ -74,6 +74,6 @@ async function borrarVenta(id) {
 module.exports={
     mostrarVentas,
     nuevoVentas,
-    borrarVenta,
+    cancelarVenta,
     encontrado
 }
