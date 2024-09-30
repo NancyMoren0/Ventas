@@ -18,8 +18,8 @@ rutas.get("/encontrado/:id",async(req,res)=>{
    var ventasValidas=await encontrado(req.params.id); 
    res.json(ventasValidas);
 });
-rutas.patch("/cancelarVenta/:id",async (req,res)=>{
-   var ventaBorrada= await cancelarVenta(req.params.id);
+rutas.patch("/borrarVenta/:id",async (req,res)=>{
+   var ventaBorrada= await borrarVenta(req.params.id);
    res.json(ventaBorrada);
 });
 
