@@ -56,24 +56,24 @@ async function nuevoVentas(data) {
     
 }
 
-async function borrarVenta(id) {
+async function cancelarVenta(id) {
     var ventasValidas = await encontrado(id);
-    let ventaBorrada = false;
+    let cancelarVenta = false;
  
     if (ventasValidas) {
       // Modificas el campo "estado" en lugar de borrar el documento
       await ventasBD.doc(id).update({
         "estado": "cancelado" // Actualiza el campo "estado"
       });
-      ventaBorrada = true;
+      cancelarVenta = true;
     }
  
-    return ventaBorrada;
+    return cancelarVenta;
  }
 
 module.exports={
     mostrarVentas,
     nuevoVentas,
-    borrarVenta,
+    cancelarVenta,
     encontrado
 }
