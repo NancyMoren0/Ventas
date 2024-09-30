@@ -67,7 +67,9 @@ async function borrarVenta(id) {
       });
       ventaBorrada = true;
     }
-}
+ 
+    return ventaBorrada;
+ }
 
 module.exports={
     mostrarVentas,
