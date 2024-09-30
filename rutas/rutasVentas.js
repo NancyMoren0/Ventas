@@ -4,7 +4,8 @@ var rutas=require("express").Router();
 var { mostrarVentas,
    nuevoVentas,
    borrarVenta,
-   encontrado}=require("../bd/ventasBD");
+   encontrado,
+   cancelarVenta}=require("../bd/ventasBD");
 
 rutas.get("/mostrarVentas",async(req,res)=>{
  
@@ -18,8 +19,8 @@ rutas.get("/encontrado/:id",async(req,res)=>{
    var ventasValidas=await encontrado(req.params.id); 
    res.json(ventasValidas);
 });
-rutas.patch("/borrarVenta/:id",async (req,res)=>{
-   var ventaBorrada= await borrarVenta(req.params.id);
+rutas.patch("/cancelarVenta/:id",async (req,res)=>{
+   var ventaBorrada= await cancelarVenta(req.params.id);
    res.json(ventaBorrada);
 });
 

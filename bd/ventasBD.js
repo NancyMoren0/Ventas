@@ -56,6 +56,16 @@ async function nuevoVentas(data) {
     
 }
 
+/*async function borrarVenta(id) {
+    var ventasValidas=await encontrado(id);
+    ventaBorrada=false;
+    if(ventasValidas){
+      await usuariosBD.doc(id).delete();
+      ventaBorrada=true;
+    }
+    return ventaBorrada;
+ }*/
+
 async function cancelarVenta(id) {
     var ventasValidas = await encontrado(id);
     let ventaBorrada = false;
