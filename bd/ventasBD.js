@@ -57,13 +57,16 @@ async function nuevoVentas(data) {
 }
 
 async function borrarVenta(id) {
-   var ventasValidas=await encontrado(id);
-   ventaBorrada=false;
-   if(ventasValidas){
-     await ventasBD.doc(id).delete();
-     ventaBorrada=true;
-   }
-   return ventaBorrada;
+    var ventasValidas = await encontrado(id);
+    let ventaBorrada = false;
+ 
+    if (ventasValidas) {
+      // Modificas el campo "estado" en lugar de borrar el documento
+      await ventasBD.doc(id).update({
+        estado: "cancelado" // Actualiza el campo "estado"
+      });
+      ventaBorrada = true;
+    }
 }
 
 module.exports={
