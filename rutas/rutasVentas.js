@@ -19,8 +19,8 @@ rutas.get("/encontrado/:id",async(req,res)=>{
    res.json(ventasValidas);
 });
 rutas.patch("/cancelarVenta/:id",async (req,res)=>{
-   var cancelarVenta= await cancelarVenta(req.params.id);
-   res.json(cancelarVenta);
+   var ventaBorrada= await cancelarVenta(req.params.id);
+   res.json(ventaBorrada);
 });
 
 rutas.post("/nuevoVentas",async (req,res)=>{
