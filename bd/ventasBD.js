@@ -43,19 +43,24 @@ async function encontrado(id) {
 
 
 async function nuevoVentas(data) {
-   
-    data.tipoVenta="venta";
-    const venta1=new Ventas (data);
-    
-    var ventasValidas=false;
-    if(validarDatos(venta1.getVentas)){
-       await ventasBD.doc().set(venta1.getVentas); 
-       ventasValidas=true;
-    }
-    return ventasValidas;
-    
-}
+    // Agrega el tipo de venta y el estado al objeto de datos
+    data.tipoVenta = "venta";
+    data.estado = "entregado";  // Establece el estado como "entregado"
 
+    // Crea una nueva instancia de la venta
+    const venta1 = new Ventas(data);
+    
+    var ventasValidas = false;
+
+    // Valida los datos de la venta antes de guardarla
+    if (validarDatos(venta1.getVentas)) {
+        // Guarda la nueva venta en la base de datos
+        await ventasBD.doc().set(venta1.getVentas);
+        ventasValidas = true;
+    }
+
+    return ventasValidas;
+}
 /*async function borrarVenta(id) {
     var ventasValidas=await encontrado(id);
     ventaBorrada=false;
