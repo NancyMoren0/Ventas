@@ -71,9 +71,9 @@ async function cancelarVenta(id) {
     let ventaBorrada = false;
  
     if (ventasValidas) {
-      // Modificas el campo "estado" en lugar de borrar el documento
+      
       await ventasBD.doc(id).update({
-         "estado": "cancelado" // Actualiza el campo "estado"
+         "estado": "cancelado" 
       });
       ventaBorrada = true;
     }
