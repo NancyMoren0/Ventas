@@ -75,7 +75,7 @@ async function nuevoVentas(data) {
         };
 
         // Guarda la nueva venta en la base de datos
-        await ventasBD.doc().post(datosVenta);
+        await ventasBD.doc().set(datosVenta);
         ventasValidas = true;
     }
 
