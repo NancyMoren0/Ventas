@@ -6,7 +6,7 @@ const { ventas } = require("./conexion");
 function validarDatos(venta){
     var valido = false;
     if(venta.cantidad!=undefined && venta.estado!=undefined && venta.fecha!=undefined  && venta.hora!=undefined
-        && venta.hora!=undefined  && venta.idprod!=undefined  && venta.idusu!=undefined){
+          && venta.idprod!=undefined  && venta.idusu!=undefined){
      valido=true;
     }
     return valido;
@@ -75,7 +75,7 @@ async function nuevoVentas(data) {
         };
 
         // Guarda la nueva venta en la base de datos
-        await ventasBD.doc().set(datosVenta);
+        await ventasBD.doc().post(datosVenta);
         ventasValidas = true;
     }
 
