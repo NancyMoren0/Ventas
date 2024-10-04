@@ -7,7 +7,7 @@ class Ventas{
         this.fecha=data.fecha;
         this.hora=data.hora;
         this.idprod=data.idprod;
-        this.idusu=data.idprod;
+        this.idusu=data.idusu;
        
 
     }

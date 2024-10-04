@@ -8,11 +8,13 @@ var { mostrarVentas,
    cancelarVenta}=require("../bd/ventasBD");
 
 rutas.get("/mostrarVentas",async(req,res)=>{
- 
-
- var ventasValidas = await mostrarVentas();  
-
- res.json(ventasValidas);
+   try {
+      var ventasValidas = await mostrarVentas();
+      res.json(ventasValidas);
+   } catch (error) {
+      console.error("Error algo fallo al obtener las ventas:", error);
+      res.status(500).json({ mensaje: "Ocurrió un error al obtener las ventas :(" });
+   }
 });
 
 rutas.get("/encontrado/:id",async(req,res)=>{
